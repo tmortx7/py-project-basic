@@ -13,7 +13,7 @@ class AllDepartmentsScreen(QDialog):
 
     def initui(self):
         self.deptCombobox = self.findChild(QComboBox, 'department_combobox')
-        self.deptCombobox.setMinimumWidth(200)
+        #self.deptCombobox.setMinimumWidth(200)
 
         options = Database.query_allDepartments()
 
