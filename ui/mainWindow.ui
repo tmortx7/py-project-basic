@@ -37,6 +37,7 @@
       <string>&amp;Department</string>
      </property>
      <addaction name="action_NewDepartment"/>
+     <addaction name="action_Departments"/>
     </widget>
     <widget class="QMenu" name="menu_Site">
      <property name="title">
@@ -71,6 +72,11 @@
   <action name="action_NewEquipment">
    <property name="text">
     <string>&amp;New</string>
+   </property>
+  </action>
+  <action name="action_Departments">
+   <property name="text">
+    <string>&amp;Departments</string>
    </property>
   </action>
  </widget>

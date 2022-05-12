@@ -28,3 +28,12 @@ def add_department(name, alias):
     session.add(data)
     session.commit()
     session.close()
+
+def query_allDepartments():
+    session = Session()
+    result = session.query(Data).all()
+    list = []
+    for name in result:
+        list.append([name.name ])
+    session.close()
+    return list

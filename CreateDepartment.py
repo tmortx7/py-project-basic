@@ -7,7 +7,7 @@ import Database
 class CreateDepartmentScreen(QDialog):
     def __init__(self):
         super(CreateDepartmentScreen, self).__init__()
-        uic.loadUi("createdepartment.ui", self)
+        uic.loadUi("ui/createdepartment.ui", self)
         self.initui()
 
     def initui(self):
