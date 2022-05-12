@@ -1,13 +1,15 @@
 from PyQt5 import QtWidgets, uic
-from PyQt5.QtWidgets import QMainWindow, QMenu, QAction, QPushButton, QLineEdit, QDialog
+from PyQt5.QtWidgets import (QMainWindow, QMenu, QAction, QPushButton, 
+                            QLineEdit, QDialog, QTableView,QHeaderView,QAbstractItemView)
 import sys
+from CreateDepartment import CreateDepartmentScreen
 
-class Ui(QMainWindow):
+class MainWindow(QMainWindow):
     def __init__(self, *args, **kwargs):
-        super(Ui, self).__init__(*args, **kwargs)
+        super(MainWindow, self).__init__(*args, **kwargs)
         uic.loadUi('mainWindow.ui', self)
-        self.setWindowTitle("Script Select Menu")
 
+        self.setWindowTitle("Script Select Menu")
         self.button = self.findChild(QPushButton, 'printButton') 
         
         self.newDepartment = self.findChild(QAction, 'action_NewDepartment')
@@ -21,18 +23,19 @@ class Ui(QMainWindow):
 
         self.show()
 
+
     def gotocreate(self):
         dlg = CreateDepartmentScreen()
         dlg.exec_()
         
 
-class CreateDepartmentScreen(QDialog):
-    def __init__(self):
-        super(CreateDepartmentScreen, self).__init__()
-        uic.loadUi("createdepartment.ui", self)
+
+    
+    
+
         
 
 app = QtWidgets.QApplication(sys.argv)
-window = Ui()
+window = MainWindow()
 app.exec_()
 
