@@ -5,6 +5,7 @@ from PyQt5.QtSql import QSqlDatabase, QSqlQuery, QSqlTableModel
 import sys
 from CreateDepartment import CreateDepartmentScreen
 from allDepartments import AllDepartmentsScreen
+from CreateSite import CreateSiteScreen
 
 
 class MainWindow(QMainWindow):
@@ -12,7 +13,7 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__(*args, **kwargs)
         uic.loadUi('ui/mainWindow.ui', self)
 
-        self.setWindowTitle("Script Select Menu")
+        self.setWindowTitle("Control Systems")
         self.button = self.findChild(QPushButton, 'printButton')
 
         self.newDepartment = self.findChild(QAction, 'action_NewDepartment')
@@ -25,6 +26,7 @@ class MainWindow(QMainWindow):
         self.input = self.findChild(QLineEdit, 'input')
 
         self.allDepartments.triggered.connect(self.gotoAllDepartments)
+        self.newSite.triggered.connect(self.gotoCreateSite)
 
         self.show()
 
@@ -34,6 +36,10 @@ class MainWindow(QMainWindow):
 
     def gotoAllDepartments(self):
         dlg = AllDepartmentsScreen()
+        dlg.exec_()
+
+    def gotoCreateSite(self):
+        dlg = CreateSiteScreen()
         dlg.exec_()
 
 

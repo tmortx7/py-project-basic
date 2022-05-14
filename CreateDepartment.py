@@ -1,13 +1,15 @@
 from PyQt5 import QtWidgets, uic
-from PyQt5.QtWidgets import (QMainWindow, QMenu, QAction, QPushButton,
+from PyQt5.QtWidgets import (QMainWindow, QMenu, QAction, QPushButton, QMessageBox,
                              QLineEdit, QDialog, QTableView, QHeaderView, QAbstractItemView)
 import sys
 import Database
+
 
 class CreateDepartmentScreen(QDialog):
     def __init__(self):
         super(CreateDepartmentScreen, self).__init__()
         uic.loadUi("ui/createdepartment.ui", self)
+        self.setWindowTitle("Create Departments")
         self.initui()
 
     def initui(self):
@@ -21,6 +23,14 @@ class CreateDepartmentScreen(QDialog):
         ))
 
         self.show()
+
     def add_dept(self, name, alias):
-        Database.add_department(name, alias)
-        self.close()
+        try:
+            Database.add_department(name, alias)
+            self.close()
+            QMessageBox.information(
+                QMessageBox(), 'Successful', 'Department is added successfully to the database.')
+            self.close()
+        except Exception:
+            QMessageBox.warning(QMessageBox(), 'Error',
+                                'Could not add department to the database.')

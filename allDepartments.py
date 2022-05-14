@@ -9,11 +9,11 @@ class AllDepartmentsScreen(QDialog):
     def __init__(self):
         super(AllDepartmentsScreen, self).__init__()
         uic.loadUi("ui/alldepartments.ui", self)
+        self.setWindowTitle("All Departments")
         self.initui()
 
     def initui(self):
         self.deptCombobox = self.findChild(QComboBox, 'department_combobox')
-        #self.deptCombobox.setMinimumWidth(200)
 
         options = Database.query_allDepartments()
 
@@ -26,7 +26,7 @@ class AllDepartmentsScreen(QDialog):
     def text_changed(self):
         item = self.deptCombobox.currentText()
         print(item)
-        
-        
 
-        
+
+
+
