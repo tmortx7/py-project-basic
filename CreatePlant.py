@@ -26,6 +26,7 @@ class CreatePlantScreen(QDialog):
         self.plant_description_input = self.findChild(
             QLineEdit, 'plant_description_input')
         self.plant_note_input = self.findChild(QLineEdit, 'plant_note_input')
+        self.address_input = self.findChild(QLineEdit,'address_input')
         self.new_button = self.findChild(QPushButton, 'new_button')
         self.owner_comboBox.currentTextChanged.connect(
             self.handleOwnerComboBox)
@@ -42,6 +43,11 @@ class CreatePlantScreen(QDialog):
             owner
         ))
 
+        self.new_button.clicked.connect(lambda: self.addaddress(
+            self.address_input.text(),
+            self.plant_input.text(),           
+        ))
+
         self.show()
 
     def addplant(self, plant, number, description, note, owner):
@@ -54,3 +60,14 @@ class CreatePlantScreen(QDialog):
         except Exception:
             QMessageBox.warning(QMessageBox(), 'Error',
                                 'Could not add plant to the database.')
+
+    def addaddress(self, plus_code, plant_plant):
+        try:
+            Database.add_address(plus_code, plant_plant)
+            self.close()
+            QMessageBox.information(
+                QMessageBox(), 'Successful', 'Address is added successfully to the database.')
+            self.close()
+        except Exception:
+            QMessageBox.warning(QMessageBox(), 'Error',
+                                'Could not add address to the database.')

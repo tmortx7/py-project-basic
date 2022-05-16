@@ -126,3 +126,15 @@ def add_plant(plant,number,description,note,owner):
     session.add(data)
     session.commit()
     session.close()
+
+def add_address(plus_code,plant_plant):
+    session = Session()
+
+    data = Address()
+    data.plus_code = plus_code
+    data.plant_plant = plant_plant
+
+
+    session.add(data)
+    session.commit()
+    session.close()
