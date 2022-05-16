@@ -32,18 +32,18 @@
     <property name="title">
      <string>&amp;Field</string>
     </property>
-    <widget class="QMenu" name="menu_Department">
+    <widget class="QMenu" name="menu_Owner">
      <property name="title">
-      <string>&amp;Department</string>
+      <string>&amp;Owner</string>
      </property>
-     <addaction name="action_NewDepartment"/>
-     <addaction name="action_Departments"/>
+     <addaction name="action_NewOwner"/>
+     <addaction name="action_AllOwners"/>
     </widget>
-    <widget class="QMenu" name="menu_Site">
+    <widget class="QMenu" name="menu_Plant">
      <property name="title">
-      <string>&amp;Site</string>
+      <string>&amp;Plant</string>
      </property>
-     <addaction name="action_NewSite"/>
+     <addaction name="action_NewPlant"/>
     </widget>
     <widget class="QMenu" name="menu_Equipment">
      <property name="title">
@@ -51,20 +51,20 @@
      </property>
      <addaction name="action_NewEquipment"/>
     </widget>
-    <addaction name="menu_Department"/>
-    <addaction name="menu_Site"/>
+    <addaction name="menu_Owner"/>
+    <addaction name="menu_Plant"/>
     <addaction name="menu_Equipment"/>
    </widget>
    <addaction name="menu_File"/>
    <addaction name="menu_Field"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="action_NewDepartment">
+  <action name="action_NewOwner">
    <property name="text">
     <string>&amp;New</string>
    </property>
   </action>
-  <action name="action_NewSite">
+  <action name="action_NewPlant">
    <property name="text">
     <string>&amp;New</string>
    </property>
@@ -74,9 +74,9 @@
     <string>&amp;New</string>
    </property>
   </action>
-  <action name="action_Departments">
+  <action name="action_AllOwners">
    <property name="text">
-    <string>&amp;Departments</string>
+    <string>&amp;Owners</string>
    </property>
   </action>
  </widget>

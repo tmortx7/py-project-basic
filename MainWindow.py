@@ -1,12 +1,9 @@
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtWidgets import (QMainWindow, QMenu, QAction, QPushButton,
                              QLineEdit, QDialog, QTableView, QHeaderView, QAbstractItemView)
-from PyQt5.QtSql import QSqlDatabase, QSqlQuery, QSqlTableModel
 import sys
-from CreateDepartment import CreateDepartmentScreen
-from allDepartments import AllDepartmentsScreen
-from CreateSite import CreateSiteScreen
-
+from CreateOwner import CreateOwnerScreen
+from CreatePlant import CreatePlantScreen
 
 class MainWindow(QMainWindow):
     def __init__(self, *args, **kwargs):
@@ -16,30 +13,20 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Control Systems")
         self.button = self.findChild(QPushButton, 'printButton')
 
-        self.newDepartment = self.findChild(QAction, 'action_NewDepartment')
-
-        self.newSite = self.findChild(QAction, 'action_NewSite')
-        self.allDepartments = self.findChild(QAction, 'action_Departments')
-
+        self.newOwner = self.findChild(QAction, 'action_NewOwner')
+        self.newPlant = self.findChild(QAction, 'action_NewPlant')
         # self.button.clicked.connect(self.printButtonPressed)
-        self.newDepartment.triggered.connect(self.gotocreate)
-        self.input = self.findChild(QLineEdit, 'input')
-
-        self.allDepartments.triggered.connect(self.gotoAllDepartments)
-        self.newSite.triggered.connect(self.gotoCreateSite)
+        self.newOwner.triggered.connect(self.gotocreateOwner)
+        self.newPlant.triggered.connect(self.gotocreatePlant)
 
         self.show()
 
-    def gotocreate(self):
-        dlg = CreateDepartmentScreen()
+    def gotocreateOwner(self):
+        dlg = CreateOwnerScreen()
         dlg.exec_()
 
-    def gotoAllDepartments(self):
-        dlg = AllDepartmentsScreen()
-        dlg.exec_()
-
-    def gotoCreateSite(self):
-        dlg = CreateSiteScreen()
+    def gotocreatePlant(self):
+        dlg = CreatePlantScreen()
         dlg.exec_()
 
 
